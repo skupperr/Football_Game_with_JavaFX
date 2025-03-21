@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" styleClass="mainmenu" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginpage.HelloController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="803.0" opacity="0.55" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1366.0" />
+      <HBox layoutX="-1.0" layoutY="-2.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="772.0" prefWidth="1366.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="772.0" prefWidth="249.0">
+               <children>
+                  <ImageView fitHeight="189.0" fitWidth="188.0" preserveRatio="true" VBox.vgrow="ALWAYS">
+                     <image>
+                        <Image url="@amateur.png" />
+                     </image>
+                  </ImageView>
+                  <Text boundsType="LOGICAL_VERTICAL_CENTER" fill="#00b7ff" strokeType="OUTSIDE" strokeWidth="0.0" text="AMATEUR" textAlignment="CENTER" wrappingWidth="273.0" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font size="40.0" />
+                     </font></Text>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="772.0" prefWidth="321.0">
+               <children>
+                  <ImageView fitHeight="259.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                     <image>
+                        <Image url="@pro.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#00b7ff" strokeType="OUTSIDE" strokeWidth="0.0" text="PRO">
+                     <font>
+                        <Font size="40.0" />
+                     </font></Text>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="772.0" prefWidth="256.0">
+               <children>
+                  <ImageView fitHeight="371.0" fitWidth="354.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                     <image>
+                        <Image url="@3.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#00b7ff" strokeType="OUTSIDE" strokeWidth="0.0" text="WORLD CLASS" textAlignment="CENTER" wrappingWidth="288.65625">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="772.0" prefWidth="437.0">
+               <children>
+                  <ImageView fitHeight="426.0" fitWidth="397.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@4.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#00b7ff" strokeType="OUTSIDE" strokeWidth="0.0" text="LEGENDARY">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="accName" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Button alignment="CENTER" layoutX="1242.0" layoutY="13.0" mnemonicParsing="false" onAction="#divisionRivals" styleClass="home-button" stylesheets="@style.css" text="✖" textFill="#00b7ff">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

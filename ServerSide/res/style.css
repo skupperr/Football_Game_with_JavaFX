@@ -1,0 +1,162 @@
+.table-view {
+    -fx-background-color: rgba(0, 0, 0, 0.62); /* Slightly transparent white background */
+    -fx-control-inner-background: rgba(0, 0, 0, 0.62); /* Background for rows */
+    -fx-control-inner-background-alt: rgba(0, 0, 0, 0.62); /* Alternate row background */
+    -fx-table-cell-border-color: rgba(0, 0, 0, 0.2); /* Subtle borders */
+    -fx-padding: 10px; /* Optional padding for aesthetics */
+    -fx-font-size: 10px;
+}
+
+.table-row-cell {
+    -fx-pref-height: 50px; /* Adjust row height */
+}
+
+.table-cell {
+    -fx-font-size: 16px; /* Adjust this value for a larger font size */
+    -fx-padding: 10px; /* Add padding for better readability */
+}
+.table-column-header {
+    -fx-alignment: CENTER; /* Optional: Align column headers */
+}
+
+.custom-table .table-cell {
+    -fx-font-size: 12px; /* New font size for rows */
+    -fx-text-fill: white; /* Optional: Set text color */
+}
+
+/* Center align only for columns with 'center-column' style class */
+.center-column .table-cell {
+    -fx-alignment: center;
+}
+/* Center align text in all TableView cells */
+.table-cell {
+    -fx-alignment: center; /* Center text horizontally and vertically */
+}
+
+
+
+/* Global Scene Styles */
+.root {
+    -fx-background-color: #002431;
+    -fx-padding: 10px;
+}
+
+/* SplitPane Styling */
+.split-pane {
+    -fx-border-color: #309dd6;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+}
+
+/* ListView Styling */
+
+
+.list-view {
+    -fx-control-inner-background: #002431;
+    -fx-text-fill: white;
+    -fx-selection-bar: #309dd6;
+    -fx-selection-bar-text: white;
+}
+
+
+/* Items inside the ListView */
+.list-cell {
+    -fx-background-color: #013548;
+    -fx-text-fill: white;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+}
+.list-cell:hover {
+    -fx-background-color: #1e5876;
+}
+
+/* Message Input TextField */
+.text-field {
+    -fx-background-color: #013548;
+    -fx-border-color: #309dd6;
+    -fx-border-radius: 5px;
+    -fx-text-fill: white;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+}
+
+/* Message Bubbles */
+.message-box {
+    -fx-background-color: #004c6e;
+    -fx-text-fill: white;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+    -fx-background-radius: 10px;
+    -fx-max-width: 75%;
+}
+
+/* Sent Message (Align Right) */
+.sent-message {
+    -fx-background-color: #309dd6;
+    -fx-text-fill: white;
+    -fx-alignment: center-right;
+}
+
+/* Received Message (Align Left) */
+.received-message {
+    -fx-background-color: #013548;
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #002431;
+    -fx-text-fill: white;
+    -fx-border-color: #309dd6;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 5px;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+}
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #227dc9, #003e78);
+}
+
+/* Chat Title Label */
+.chat-title {
+    -fx-font-size: 18px;
+    -fx-text-fill: #309dd6;
+    -fx-padding: 10px 0;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+/* ScrollPane (For Messages) */
+.scroll-pane {
+    -fx-background-color: #002431;
+    -fx-padding: 5px;
+    -fx-border-color: #309dd6;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+}
+.scroll-pane .viewport {
+    -fx-background-color: #002431;
+}
+
+/* List View Items - Highlight selected username */
+.list-view .list-cell:filled:selected {
+    -fx-background-color: #309dd6;  /* Set selection highlight color */
+    -fx-text-fill: white;            /* Set text color for selected item */
+}
+
+
+
+/* Apply these styles to make the loading animation and text better aligned */
+.progress-indicator {
+    -fx-pref-width: 80px;
+    -fx-pref-height: 80px;
+    -fx-progress-color: #3498db; /* Set your preferred color */
+}
+.loading-text {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-margin: 10;
+}
+

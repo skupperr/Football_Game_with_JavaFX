@@ -1,0 +1,135 @@
+.bodybg{
+    -fx-background-image: url('background.jpg');
+    -fx-background-size: 100% 100%;
+}
+.tambg{
+    -fx-background-image: url('lineups.png');
+    -fx-background-size: 100% 100%;
+}
+.newbodybg{
+    -fx-background-image: url('regBackground.jpg');
+    -fx-background-size: 100% 100%;
+}
+.mainmenu{
+    -fx-background-image: url('mainmenu.jpg');
+    -fx-background-size: 100% 100%;
+}
+
+.custom-button {
+    -fx-background-color: rgba(48, 157, 214, 0.5); /* Button with transparent background */
+    -fx-cursor: hand;                              /* Pointer cursor */
+    -fx-border-radius: 8px;                        /* Optional rounded corners */
+}
+
+/* Hover effect for button background */
+.custom-button:hover {
+    -fx-background-color: rgba(26, 173, 255, 0.5); /* Hover background color with slight transparency */
+    -fx-scale-x: 1.05;                             /* Slight scaling effect */
+    -fx-scale-y: 1.05;
+}
+
+/* Ensure the image inside button always has full opacity */
+.custom-button .image-view {
+    -fx-opacity: 1.0;
+}
+
+.custom-button:hover .image-view {
+    -fx-opacity: 1.0; /* Prevent image opacity change on hover */
+}
+
+
+.home-button {
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent; /* Remove button background */
+    -fx-border-color: transparent;    /* Remove border */
+    -fx-padding: 0;
+}
+
+
+.table-view {
+    -fx-background-color: rgba(0, 0, 0, 0.62); /* Slightly transparent white background */
+    -fx-control-inner-background: rgba(0, 0, 0, 0.62); /* Background for rows */
+    -fx-control-inner-background-alt: rgba(0, 0, 0, 0.62); /* Alternate row background */
+    -fx-table-cell-border-color: rgba(0, 0, 0, 0.2); /* Subtle borders */
+    -fx-padding: 10px; /* Optional padding for aesthetics */
+    -fx-font-size: 10px;
+}
+
+.table-row-cell {
+    -fx-pref-height: 50px; /* Adjust row height */
+}
+
+.table-cell {
+    -fx-font-size: 16px; /* Adjust this value for a larger font size */
+    -fx-padding: 10px; /* Add padding for better readability */
+}
+.table-column-header {
+    -fx-alignment: CENTER; /* Optional: Align column headers */
+}
+
+.custom-table .table-cell {
+    -fx-font-size: 12px; /* New font size for rows */
+    -fx-text-fill: white; /* Optional: Set text color */
+}
+
+
+.table1-row-cell {
+    -fx-pref-height: 50px; /* Adjust row height */
+}
+
+.table1-cell {
+    -fx-font-size: 16px; /* Adjust this value for a larger font size */
+    -fx-padding: 10px; /* Add padding for better readability */
+}
+.table1-column-header {
+    -fx-alignment: CENTER; /* Optional: Align column headers */
+}
+
+.custom-table .table-cell {
+    -fx-font-size: 12px; /* New font size for rows */
+    -fx-text-fill: white; /* Optional: Set text color */
+}
+
+/* Style for LineChart */
+.line-chart {
+    -fx-background-color: rgba(0, 0, 0, 0.5); /* Transparent dark background */
+    -fx-padding: 10px; /* Add padding */
+    -fx-border-color: #309dd6; /* Border color matching theme */
+    -fx-border-width: 2px;
+}
+
+.line-chart .chart-plot-background {
+    -fx-background-color: transparent; /* Transparent plot background */
+}
+
+.line-chart .chart-title {
+    -fx-fill: white; /* Chart title color */
+    -fx-font-size: 16px; /* Title font size */
+    -fx-font-family: Arial; /* Optional: match the font */
+}
+
+.line-chart .axis {
+    -fx-tick-label-fill: white; /* Axis tick labels color */
+    -fx-tick-mark-stroke: white; /* Tick marks color */
+    -fx-font-size: 12px; /* Tick label font size */
+}
+
+.line-chart .axis-label {
+    -fx-text-fill: white; /* Axis label color */
+    -fx-font-size: 14px; /* Axis label font size */
+}
+
+.chart-series-line {
+    -fx-stroke: #309dd6; /* Blueish color from your theme */
+    -fx-stroke-width: 3px; /* Adjust thickness if needed */
+}
+
+.default-color0.chart-line-symbol {
+    -fx-background-color: #309dd6, white; /* Matches line color for points */
+    -fx-background-radius: 2px;
+}
+
+
+

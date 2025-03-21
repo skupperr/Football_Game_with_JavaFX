@@ -1,0 +1,316 @@
+package Entity;
+
+import com.example.game_basic.GamePanel;
+import com.example.game_basic.KeyHandler;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+
+import java.awt.*;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class OpPlayer extends entity {
+    GamePanel gp;
+    KeyHandler keyH;
+    public int ID;
+    public final Lock positionLock = new ReentrantLock();
+//    public int screenX;
+//    public int screenY;
+
+    public OpPlayer(GamePanel gp, KeyHandler keyH, int X, int Y, int id, String directionOfPlayer) {
+        this.gp = gp;
+        this.keyH = keyH;
+
+//        screenX = gp.screenWidth / 2 - (gp.tileSize / 2);
+//        screenY = gp.screenHeight / 2 - (gp.tileSize / 2);
+//        screenX = X;
+//        screenY = Y;
+        worldX = X;
+        worldY = Y;
+        this.ID = id;
+        direction = directionOfPlayer;
+
+        speed = 3;
+
+//        this.x = X;
+//        this.y = Y;
+
+//        set_default_values();
+        getPlayerImage();
+
+        solidArea = new Rectangle();
+        solidArea.x = 8;
+        solidArea.y = 16;
+        solidArea.width = 32;
+        solidArea.height = 32;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Player[" + this.ID + "]";
+    }
+
+    public void set_default_values(int worldX , int worldY,String direction) {
+//        worldX = gp.tileSize * 23;
+//        worldY = gp.tileSize * 21;
+        positionLock.lock();
+        try {
+            this.worldX = worldX;
+            this.worldY = worldY;
+            this.direction = direction;
+//            System.out.println("Updated Football Position: " + this.worldX + ", " + this.worldY);
+        } finally {
+            positionLock.unlock();
+        }
+//        speed = 3;
+//        direction = "right";
+    }
+
+    public void getPlayerImage() {
+        up1 = new Image(getClass().getResourceAsStream("/player/girl_up_1.png"));
+        up2 = new Image(getClass().getResourceAsStream("/player/girl_up_2.png"));
+        down1 = new Image(getClass().getResourceAsStream("/player/girl_down_1.png"));
+        down2 = new Image(getClass().getResourceAsStream("/player/girl_down_2.png"));
+        left1 = new Image(getClass().getResourceAsStream("/player/girl_left_1.png"));
+        left2 = new Image(getClass().getResourceAsStream("/player/girl_left_2.png"));
+        right1 = new Image(getClass().getResourceAsStream("/player/girl_right_1.png"));
+        right2 = new Image(getClass().getResourceAsStream("/player/girl_right_2.png"));
+    }
+
+    public void update(Football football) {
+        if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
+
+
+            int prevWorldX = worldX;
+            int prevWorldY = worldY;
+
+            collission = false;
+
+//            if (Math.abs(football.worldX - worldX) < gp.tileSize && Math.abs(football.worldY - worldY) < gp.tileSize) {
+//
+//                if (keyH.upPressed && keyH.rightPressed) {
+//                    direction = "up-right";
+//                    worldY -= 5;
+//                    worldX += 5;
+//                } else if (keyH.upPressed && keyH.leftPressed) {
+//                    direction = "up-left";
+//                    worldY -= 5;
+//                    worldX -= 5;
+//                } else if (keyH.downPressed && keyH.rightPressed) {
+//                    direction = "down-right";
+//                    worldY += 5;
+//                    worldX += 5;
+//                } else if (keyH.downPressed && keyH.leftPressed) {
+//                    direction = "down-left";
+//                    worldY += 5;
+//                    worldX -= 5;
+//                }
+//
+//
+//            }
+
+
+            /// //////diagonal>>>>
+            if (keyH.upPressed && keyH.rightPressed) {
+                direction = "up-right";
+                worldY -= speed;
+                worldX += speed;
+
+            } else if (keyH.upPressed && keyH.leftPressed) {
+                direction = "up-left";
+                worldY -= speed;
+                worldX -= speed;
+
+            } else if (keyH.downPressed && keyH.rightPressed) {
+                direction = "down-right";
+                worldY += speed;
+                worldX += speed;
+
+            } else if (keyH.downPressed && keyH.leftPressed) {
+                direction = "down-left";
+                worldY += speed;
+                worldX -= speed;
+
+            }
+
+            /// //////single direction>>>>
+            else if (keyH.upPressed) {
+                direction = "up";
+                worldY -= speed;
+
+
+            } else if (keyH.downPressed) {
+                direction = "down";
+                worldY += speed;
+
+            } else if (keyH.leftPressed) {
+                direction = "left";
+                worldX -= speed;
+
+            } else if (keyH.rightPressed) {
+                direction = "right";
+                worldX += speed;
+
+            }
+
+
+//            if (screenX != 0 && screenY != 0) {
+//                screenX = (int) (screenX / Math.sqrt(2));
+//                screenY = (int) (screenY / Math.sqrt(2));
+//            }
+
+//             Check horizontal collisions
+//            if (horizontalMovement != 0) {
+//                int prevWorldX = worldX;
+////                worldX += horizontalMovement;
+//                collission = false;
+//                gp.collisionChecker.checkTile(this);
+//                if (collission) worldX = prevWorldX;
+//            }
+            gp.collisionChecker.checkTile(this);
+            if (collission) {
+                worldX = prevWorldX;
+                worldY = prevWorldY;
+            }
+//
+//            // Check vertical collisions
+//            if (screenY != 0) {
+//                int prevWorldY = worldY;
+//                worldY += screenY;
+//                collission = false;
+//                gp.collisionChecker.checkTile(this);
+//                if (collission) worldY = prevWorldY;
+//            }
+
+            // Update direction for facing
+//            if (screenX > 0) direction = "right";
+//            else if (screenX < 0) direction = "left";
+//            else if (screenY < 0) direction = "up";
+//            else if (screenY > 0) direction = "down";
+
+            // Update sprite animation
+            spriteCounter++;
+            if (spriteCounter > 10) {
+                if (spriteNum == 1) {
+                    spriteNum = 2;
+                } else if (spriteNum == 2) {
+                    spriteNum = 1;
+                }
+                spriteCounter = 0;
+            }
+        }
+    }
+
+
+//    public void draw(GraphicsContext gc) {
+//        Image image = null;
+//        gc.getPixelWriter().getPixelFormat();
+//        gc.setImageSmoothing(false);
+//
+//        switch (direction){
+//            case "up":
+//                if(spriteNum == 1){
+//                    image = up1;
+//                }
+//                if(spriteNum == 2){
+//                    image = up2;
+//                }
+//                break;
+//            case "down":
+//                if(spriteNum == 1){
+//                    image = down1;
+//                }
+//                if(spriteNum == 2){
+//                    image = down2;
+//                }
+//                break;
+//            case "left":
+//                if(spriteNum == 1){
+//                    image = left1;
+//                }
+//                if(spriteNum == 2){
+//                    image = left2;
+//                }
+//                break;
+//            case "right":
+//                if(spriteNum == 1){
+//                    image = right1;
+//                }
+//                if(spriteNum == 2){
+//                    image = right2;
+//                }
+//                break;
+//        }
+//
+//        if (image != null) {
+
+    /// /            gc.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize);
+//            gc.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize);
+//        }
+//    }
+    public void draw(GraphicsContext gc) {
+        Image image = null;
+
+        gc.getPixelWriter().getPixelFormat();
+        // Disable image smoothing
+        gc.setImageSmoothing(false);
+
+        switch (direction) {
+            case "up":
+                image = (spriteNum == 1) ? up1 : up2;
+                break;
+            case "down":
+                image = (spriteNum == 1) ? down1 : down2;
+                break;
+            case "left":
+                image = (spriteNum == 1) ? left1 : left2;
+                break;
+            case "right":
+                image = (spriteNum == 1) ? right1 : right2;
+                break;
+            case "up-right":
+                image = (spriteNum == 1) ? right1 : right2; // Reuse right sprite
+                break;
+            case "up-left":
+                image = (spriteNum == 1) ? left1 : left2; // Reuse left sprite
+                break;
+            case "down-right":
+                image = (spriteNum == 1) ? right1 : right2; // Reuse right sprite
+                break;
+            case "down-left":
+                image = (spriteNum == 1) ? left1 : left2; // Reuse left sprite
+                break;
+        }
+
+
+//        if (image != null) {
+//            // Scale the player to be smaller than the tile size (e.g., 75% of the tile size)
+//            double scale = 0.75; // Adjust this to control how much smaller you want the player
+//            double scaledWidth = gp.tileSize * scale;
+//            double scaledHeight = gp.tileSize * scale;
+//
+//            // Center the player image in the tile
+//            double offsetX = (gp.tileSize - scaledWidth) / 2;
+//            double offsetY = (gp.tileSize - scaledHeight) / 2;
+//
+////            gc.drawImage(image, screenX + offsetX, screenY + offsetY, scaledWidth, scaledHeight);
+//            gc.drawImage(image, worldX + offsetX, worldY + offsetY, scaledWidth, scaledHeight);
+//        }
+        if (image != null) {
+            // Map world coordinates to screen coordinates
+            int screenX = worldX - gp.football.worldX + gp.football.screenX;
+            int screenY = worldY - gp.football.worldY + gp.football.screenY;
+
+            // Scale the player to be smaller than the tile size
+            double scale = 0.75; // Adjust this as needed
+            double scaledWidth = gp.tileSize * scale;
+            double scaledHeight = gp.tileSize * scale;
+            double offsetX = (gp.tileSize - scaledWidth) / 2;
+            double offsetY = (gp.tileSize - scaledHeight) / 2;
+
+            gc.drawImage(image, screenX + offsetX, screenY + offsetY, scaledWidth, scaledHeight);
+        }
+
+    }
+}
