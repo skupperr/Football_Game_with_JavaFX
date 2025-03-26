@@ -1,7 +1,8 @@
 # Football Game with JavaFX
 It's the first multiplayer Football game that's been created using only Java.<br>
 It's a 2D multiplayer football game with competitive features such as a player marketplace, ranking system, and rewards. The game should allow players to challenge others in 1v1 matches, trade and upgrade players, and engage in various interactive mechanics like messaging and spinning rewards.
-<img src="./images/9.png" width="400" title="profile image"/><be>
+
+<img src="./images/9.png" width="400" title="profile image"/><br>
 
 ## Features
 <b>1.	Multiplayer 1 vs 1 Matches : </b>  Players can challenge real opponents online.
