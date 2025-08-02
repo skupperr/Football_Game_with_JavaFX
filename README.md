@@ -56,3 +56,7 @@ It's a 2D multiplayer football game with competitive features such as a player m
 
 ## Conclusion
  Our project aims to create an engaging, fair, and competitive 2D multiplayer football experience. By integrating features like ranking, and in-game marketplace, player upgrades, and matchmaking, we ensure long-term user engagement. 
+
+## 📬 Contact
+
+Created with ❤️ by [Asif U. Ahmed](https://github.com/skupperr) and [MD. Rifat Hossain](https://github.com/mdrifat-hossain)
